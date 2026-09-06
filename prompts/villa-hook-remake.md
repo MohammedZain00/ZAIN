@@ -7,7 +7,7 @@ Detected cuts (s): 1.733 / 2.133 / 3.133 / 4.233 / 5.667 / 8.233
 
 | # | In–Out | Dur | Content |
 |---|--------|-----|---------|
-| S1 | 0.00–1.73 | 1.73s | Ground-level macro: woman's legs (red polka dress + heeled sandals) walking the kerb edge, tree-lined avenue, golden hour. Vehicle enters frame right at ~1.35s |
+| S1 | 0.00–1.73 | 1.73s | Ground-level macro: legs walking the kerb edge (original: red polka dress + heeled sandals), tree-lined avenue, golden hour. Vehicle enters frame right at ~1.35s |
 | S2 | 1.73–2.13 | 0.40s | Extreme macro: vintage car wheel spinning, dust kick |
 | S3 | 2.13–3.13 | 1.00s | Macro on car bonnet + strapped wicker picnic baskets; a lemon is dislodged |
 | S4 | 3.13–4.23 | 1.10s | Lemon lands on asphalt and rolls; car recedes down the avenue |
@@ -21,15 +21,15 @@ Structural DNA: a single object relay told entirely from ground level, macro + s
 
 | Original | Remake |
 |---|---|
-| Red polka-dot short dress | Black Saudi abaya (matte crepe, flowing hem) |
-| Heeled sandals | Ivory bridal heels, crystal/pearl embellishment, fine ankle strap |
+| Red polka-dot short dress | Crisp white Saudi thobe on a young man (the groom) |
+| Heeled sandals | Polished black patent-leather formal wedding oxfords |
 | Vintage red car | Matte-black sports motorcycle (superbike), rider in black leathers + black helmet, face never seen |
-| Car passes the kerb | Bike closes on the kerb near her foot, then leans hard away to avoid her |
+| Car passes the kerb | Bike closes on the kerb near his foot, then leans hard away to avoid him |
 | Lemon falls from basket | Ignition key (brushed steel + slim tan leather fob) jolts free |
 | Lemon rolls across piazza | Key tumbles down a flight of stone steps into the villa forecourt |
 | Pigeons | Two grey doves |
 | Café table legs | Wide travertine paving, warm light spill from the villa glazing |
-| Reveal: old man with cards | Reveal: the villa hero frame — Saudi man in white thobe on the entrance step |
+| Reveal: old man with cards | Reveal: the villa hero frame — the SAME man in the white thobe, now seated on the entrance step |
 
 ## 3. Global style bible (prepend to every prompt)
 
@@ -45,7 +45,7 @@ high-end real-estate commercial look, photoreal, no stylization.
 
 ```
 no logo, no brand mark, no watermark, no text, no captions, no subtitles, no signage,
-no license plate text, no faces of the woman, no distorted hands or feet, no extra limbs,
+no license plate text, no face visible in the opening shot, no distorted hands or feet, no extra limbs,
 no cartoon, no CGI plastic look, no oversaturation, no lens dirt overlay, no HDR halo,
 no crowd, no cars parked in the courtyard, no daytime harsh sun
 ```
@@ -56,19 +56,20 @@ no crowd, no cars parked in the courtyard, no daytime harsh sun
 IMAGE (first frame)
 ```
 Ultra-low macro, camera resting on the asphalt beside a raised pale stone kerb, lens at
-ankle height. A woman walks along the kerb edge — only her lower legs are in frame: the
-flowing matte-black hem of a Saudi abaya swaying at mid-calf, and ivory bridal heels with
-crystal and pearl embellishment and a fine ankle strap. Behind her, an upscale modern
-residential street: young palms and ficus trees, blurred white cubic villas, low golden
-sun raking long shadows across pale concrete. T1.4 bokeh, anamorphic vertical 9:16,
-warm cinematic grade, 35mm grain.
+ankle height. A young Saudi man walks along the kerb edge — only his lower legs are in
+frame: the crisp white hem of a pressed Saudi thobe swaying just above the ankle, and
+polished black patent-leather formal wedding oxfords, mirror shine, thin dark socks.
+Behind him, an upscale modern residential street: young palms and ficus trees, blurred
+white cubic villas, low golden sun raking long shadows across pale concrete. T1.4 bokeh,
+anamorphic vertical 9:16, warm cinematic grade, 35mm grain.
 ```
 MOTION
 ```
-She takes three slow deliberate steps along the kerb edge, abaya hem swaying, heels
-tapping the stone. Camera locked off on the ground, only micro parallax. At 1.3s a
-matte-black sports motorcycle streaks in from the right edge, very close to the kerb,
-headlight flaring, heavy motion blur. No camera shake, no zoom.
+He takes three slow deliberate steps along the kerb edge, the white thobe hem swinging
+against his ankles, hard leather soles clicking on the stone. Camera locked off on the
+ground, only micro parallax. At 1.3s a matte-black sports motorcycle streaks in from the
+right edge, very close to the kerb, headlight flaring, heavy motion blur. No camera shake,
+no zoom.
 ```
 
 ### S2 — 1.73 → 2.13 (0.40s)
@@ -154,9 +155,10 @@ Wide low-angle exterior of a modern two-storey white villa at dusk. Crisp white 
 volumes, a tall dark-stone accent panel on the left elevation, black-framed floor-to-
 ceiling glazing glowing warm gold, recessed downlights washing the soffits, a cantilevered
 upper mass over a deep entrance recess. Pale limestone paved courtyard in the foreground
-with wide joint lines, soft blue twilight sky above. A Saudi man in a white thobe and
-red-and-white shemagh sits relaxed on the entrance step. Camera very low, near ground,
-wide lens, clean symmetry. No text, no logo, no signage anywhere in frame.
+with wide joint lines, soft blue twilight sky above. The same young Saudi man from the
+opening shot — crisp white thobe, red-and-white shemagh, polished black wedding oxfords —
+sits relaxed on the entrance step. Camera very low, near ground, wide lens, clean
+symmetry. No text, no logo, no signage anywhere in frame.
 ```
 MOTION
 ```
@@ -171,30 +173,32 @@ Start image: S1 image. End image: S7 image.
 
 ```
 One continuous 9-second ground-level camera move, no cuts. Open at ankle height on the
-kerb: a black abaya hem and ivory bridal heels walking the stone edge in golden light. A
+kerb: the white hem of a Saudi thobe and polished black wedding oxfords walking the stone
+edge in golden light. A
 matte-black sports motorcycle rips past the kerb and leans hard away; the ignition key
 tears free and falls. The camera abandons the bike and follows the key: it hits the
 asphalt, spins, skitters off the kerb and tumbles down a flight of pale limestone steps,
 scattering two doves, then rolls out across a wide travertine courtyard as warm window
 light sweeps over it. The key settles flat on the stone. The camera cranes up and back off
 the paving and opens into a wide low-angle reveal of a modern white villa at blue hour,
-glazing glowing gold, a man in a white thobe seated on the entrance step. Light drifts
+glazing glowing gold, the same man in the white thobe seated on the entrance step. Light drifts
 from golden hour to blue hour across the move. Anamorphic, T1.4, macro to wide, natural
 motion blur, 35mm grain. No text, no logo, no watermark.
 ```
 
 ## 7. The real-estate hook layer
 
-1. **Bridal heels + a falling key = a new home.** Never said out loud, only staged: the wedding shoes in S1 and the key landing at the villa door in S7 close the loop by themselves.
+1. **Wedding shoes + a falling key = a new home.** Never said out loud, only staged: the groom's black wedding oxfords in S1 and the key landing at his villa door in S7 close the loop by themselves.
 2. **The fob turn.** As the key settles in S6, the leather fob flips over to a plain brass house-shaped tag — no text, no branding. The bike key reads as a house key one beat before the reveal.
 3. **The house wakes up.** On the last frame the interior lights bloom one step brighter across the glazing — the building answers the key.
-4. **Clean handoff plate.** S7's final frame is locked, symmetrical and empty of graphics, so the long-form villa tour cuts straight out of it on frame one.
+4. **The same man, both ends.** The legs in S1 and the man on the step in S7 are one person — the nine seconds are the walk to his own front door, told entirely by an object he never touched.
+5. **Clean handoff plate.** S7's final frame is locked, symmetrical and empty of graphics, so the long-form villa tour cuts straight out of it on frame one.
 
 ## 8. Sound design map
 
 | Time | Sound |
 |---|---|
-| 0.00–1.30 | Quiet street ambience, heel taps on stone, faint abaya rustle |
+| 0.00–1.30 | Quiet street ambience, hard leather soles clicking on stone, faint thobe rustle |
 | 1.30–2.13 | Superbike scream rising, hard downshift, tire scrub, dust |
 | 2.13–3.13 | Engine dopplers away, one isolated metallic key chime |
 | 3.13–4.23 | Key ring on asphalt, engine fading into distance |
@@ -204,7 +208,8 @@ motion blur, 35mm grain. No text, no logo, no watermark.
 
 ## 9. Production notes
 
-- Keep the woman below the knee in every frame she appears in.
+- Keep the man below the knee in S1 — no face, no upper body, until the S7 reveal.
+- S1 and S7 are the same person: same thobe, same black oxfords, no wardrobe drift.
 - The rider's face is never visible — helmet always on, visor down.
 - Keep one key design across S3–S7 (brushed steel, tan leather fob) or continuity breaks.
 - Light travels golden hour → blue hour across the 9 seconds; do not reset it per shot.
