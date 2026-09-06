@@ -7,7 +7,7 @@ Detected cuts (s): 1.733 / 2.133 / 3.133 / 4.233 / 5.667 / 8.233
 
 | # | In–Out | Dur | Content |
 |---|--------|-----|---------|
-| S1 | 0.00–1.73 | 1.73s | Ground-level macro: legs walking the kerb edge (original: red polka dress + heeled sandals), tree-lined avenue, golden hour. Vehicle enters frame right at ~1.35s |
+| S1 | 0.00–1.73 | 1.73s | Ground-level macro on feet at the kerb edge (original: red polka dress + heeled sandals walking), tree-lined avenue, golden hour. Vehicle enters frame right at ~1.35s |
 | S2 | 1.73–2.13 | 0.40s | Extreme macro: vintage car wheel spinning, dust kick |
 | S3 | 2.13–3.13 | 1.00s | Macro on car bonnet + strapped wicker picnic baskets; a lemon is dislodged |
 | S4 | 3.13–4.23 | 1.10s | Lemon lands on asphalt and rolls; car recedes down the avenue |
@@ -23,8 +23,8 @@ Structural DNA: a single object relay told entirely from ground level, macro + s
 |---|---|
 | Red polka-dot short dress | Crisp white Saudi thobe on a young man (the groom) |
 | Heeled sandals | Polished black patent-leather formal wedding oxfords |
-| Vintage red car | Matte-black sports motorcycle (superbike), rider in black leathers + black helmet, face never seen |
-| Car passes the kerb | Bike closes on the kerb near his foot, then leans hard away to avoid him |
+| Vintage red car | Red sports motorcycle (superbike), rider in black leathers + black helmet, face never seen |
+| Car passes the kerb | He steps off the kerb, a red bike bears down, he snaps his foot back and it rips past |
 | Lemon falls from basket | Ignition key (brushed steel + slim tan leather fob) jolts free |
 | Lemon rolls across piazza | Key tumbles down a flight of stone steps into the villa forecourt |
 | Pigeons | Two grey doves |
@@ -55,29 +55,41 @@ no crowd, no cars parked in the courtyard, no daytime harsh sun
 ### S1 — 0.00 → 1.73 (1.73s)
 IMAGE (first frame)
 ```
-Ultra-low macro, camera resting on the asphalt beside a raised pale stone kerb, lens at
-ankle height. A young Saudi man walks along the kerb edge — only his lower legs are in
-frame: the crisp white hem of a pressed Saudi thobe swaying just above the ankle, and
-polished black patent-leather formal wedding oxfords, mirror shine, thin dark socks.
-Behind him, an upscale modern residential street: young palms and ficus trees, blurred
-white cubic villas, low golden sun raking long shadows across pale concrete. T1.4 bokeh,
-anamorphic vertical 9:16, warm cinematic grade, 35mm grain.
+Extreme close-up, camera lying flat on the road surface just below kerb height, lens
+almost touching the asphalt, looking up along the kerb line. Sharp in frame: the feet of a
+young Saudi man standing at the very edge of a raised pale stone kerb — glossy black
+patent-leather wedding oxfords with a mirror shine, long black dress socks, and the crisp
+white hem of a pressed Saudi thobe falling just far enough to cover the top of the shoes,
+breaking softly over the laces. His right toe rests on the rounded lip of the kerb. Beyond
+him: an upscale modern residential street at golden hour — pale concrete pavement, young
+palms and ficus throwing long shadows, blurred white cubic villas with black-framed glazing
+dissolving into creamy bokeh. Low warm sun rakes across the asphalt; fine dust and grit
+catch the light in the foreground. Shallow depth of field T1.4, anamorphic vertical 9:16,
+warm cinematic grade, 35mm grain, photoreal.
 ```
 MOTION
 ```
-He takes three slow deliberate steps along the kerb edge, the white thobe hem swinging
-against his ankles, hard leather soles clicking on the stone. Camera locked off on the
-ground, only micro parallax. At 1.3s a matte-black sports motorcycle streaks in from the
-right edge, very close to the kerb, headlight flaring, heavy motion blur. No camera shake,
-no zoom.
+Camera stays locked at road level, no move, no shake. The man shifts his weight and his
+right shoe lifts off the kerb and begins to lower toward the asphalt, the white thobe hem
+swinging forward with it. A red sports motorcycle is closing fast from the right — its
+headlight glare and red reflection already sweeping across the polished black leather. At
+the last instant he pulls back: the right foot snaps up and back onto the kerb, thobe hem
+whipping against his ankle. A fraction of a second later the red motorcycle rips through
+the foreground left to right, filling the bottom of frame with red blur, throwing dust and
+heat haze past the lens. He settles, both shoes back on the kerb edge. Natural motion blur,
+no camera shake, no zoom.
 ```
+
+BEAT NOTE: this near-miss is the inciting incident — the rider's swerve away from the
+foot is what shakes the key loose in S3. Frame the foot large enough that the pull-back
+reads instantly at thumbnail size.
 
 ### S2 — 1.73 → 2.13 (0.40s)
 IMAGE
 ```
-Extreme macro at ground level: the front tire of a matte-black sports motorcycle leaned
+Extreme macro at ground level: the front tire of a red sports motorcycle leaned
 hard over mid-corner, rubber compressed and edge-worn, warm dust and grit lifting off the
-asphalt, inverted fork leg catching a low gold flare, background dissolved into creamy
+asphalt, glossy red fairing edge and inverted fork leg catching a low gold flare, background dissolved into creamy
 bokeh of a tree-lined street.
 ```
 MOTION
@@ -90,9 +102,9 @@ camera stays planted on the ground.
 ### S3 — 2.13 → 3.13 (1.00s)
 IMAGE
 ```
-Tight macro on the motorcycle's ignition barrel and glossy black fuel tank at speed. A
+Tight macro on the motorcycle's ignition barrel and glossy red fuel tank at speed. A
 single brushed-steel key on a slim tan leather fob hangs from the ignition, vibrating.
-The tank mirrors the smeared street; chrome bar-end and low sun flare; everything beyond
+The red tank mirrors the smeared street; chrome bar-end and low sun flare; everything beyond
 the tank is liquid bokeh.
 ```
 MOTION
@@ -107,7 +119,7 @@ IMAGE
 ```
 Ground-level shot along a pale concrete kerb line. The brushed-steel key with its tan
 leather fob lies sharp in the foreground on warm asphalt; far down the tree-lined avenue
-the matte-black sports motorcycle is a small receding silhouette in dusk haze, long
+the red sports motorcycle is a small receding shape, its tail light a red pinprick in the dusk haze, long
 shadows striping the road.
 ```
 MOTION
@@ -172,11 +184,11 @@ one beat brighter across the glazing. Hold on the final frame, dead still.
 Start image: S1 image. End image: S7 image.
 
 ```
-One continuous 9-second ground-level camera move, no cuts. Open at ankle height on the
-kerb: the white hem of a Saudi thobe and polished black wedding oxfords walking the stone
-edge in golden light. A
-matte-black sports motorcycle rips past the kerb and leans hard away; the ignition key
-tears free and falls. The camera abandons the bike and follows the key: it hits the
+One continuous 9-second ground-level camera move, no cuts. Open in extreme close-up at
+road level on the kerb edge: the white hem of a Saudi thobe over polished black wedding
+oxfords and long black socks, golden light. He starts to step down off the kerb, a red
+sports motorcycle bears down fast, he snaps his right foot back onto the stone and the
+bike rips past the foreground and leans hard away; the ignition key tears free and falls. The camera abandons the bike and follows the key: it hits the
 asphalt, spins, skitters off the kerb and tumbles down a flight of pale limestone steps,
 scattering two doves, then rolls out across a wide travertine courtyard as warm window
 light sweeps over it. The key settles flat on the stone. The camera cranes up and back off
@@ -198,7 +210,7 @@ motion blur, 35mm grain. No text, no logo, no watermark.
 
 | Time | Sound |
 |---|---|
-| 0.00–1.30 | Quiet street ambience, hard leather soles clicking on stone, faint thobe rustle |
+| 0.00–1.30 | Quiet street ambience, one leather sole scuffing the kerb, thobe rustle, a sharp intake of breath on the pull-back |
 | 1.30–2.13 | Superbike scream rising, hard downshift, tire scrub, dust |
 | 2.13–3.13 | Engine dopplers away, one isolated metallic key chime |
 | 3.13–4.23 | Key ring on asphalt, engine fading into distance |
