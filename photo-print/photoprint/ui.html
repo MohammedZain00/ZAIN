@@ -1,0 +1,295 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>طباعة الصور</title>
+<style>
+:root{--bg:#f4f5f7;--card:#fff;--fg:#1c1f24;--mute:#6b7280;--line:#e3e5e8;--acc:#0b6bcb;--ok:#16794a;--warn:#a15c00;--err:#b42318}
+@media (prefers-color-scheme:dark){:root{--bg:#121417;--card:#1b1e23;--fg:#e8eaed;--mute:#9aa0a6;--line:#2c3036;--acc:#5aa4f0;--ok:#4cc38a;--warn:#f0b35a;--err:#f97066}}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--fg);font:15px/1.5 system-ui,"Segoe UI",Tahoma,sans-serif}
+header{padding:14px 20px;border-bottom:1px solid var(--line);background:var(--card);display:flex;gap:12px;align-items:center;flex-wrap:wrap}
+header h1{font-size:18px;margin:0}
+header small{color:var(--mute)}
+main{display:grid;grid-template-columns:360px 1fr;gap:16px;padding:16px;max-width:1400px;margin:auto}
+@media (max-width:900px){main{grid-template-columns:1fr}}
+.card{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:14px;margin-bottom:14px}
+.card h2{font-size:15px;margin:0 0 10px}
+label{display:block;font-size:13px;color:var(--mute);margin:8px 0 3px}
+select,input[type=text],input[type=number]{width:100%;padding:7px 9px;border:1px solid var(--line);border-radius:7px;background:var(--bg);color:var(--fg);font:inherit}
+.row{display:flex;gap:8px}.row>*{flex:1}
+.check{display:flex;align-items:center;gap:8px;margin-top:10px;color:var(--fg);font-size:14px}
+input[type=range]{width:100%}
+button{font:inherit;border:1px solid var(--line);background:var(--bg);color:var(--fg);border-radius:7px;padding:7px 12px;cursor:pointer}
+button.primary{background:var(--acc);border-color:var(--acc);color:#fff;font-weight:600;padding:10px 16px}
+button:disabled{opacity:.5;cursor:default}
+#drop{border:2px dashed var(--line);border-radius:10px;padding:22px;text-align:center;color:var(--mute);cursor:pointer}
+#drop.over{border-color:var(--acc);color:var(--acc)}
+#thumbs{display:grid;grid-template-columns:repeat(auto-fill,minmax(130px,1fr));gap:10px;margin-top:12px}
+.thumb{border:1px solid var(--line);border-radius:8px;padding:6px;font-size:12px;position:relative}
+.thumb img{width:100%;height:110px;object-fit:contain;background:var(--bg);border-radius:5px}
+.thumb .x{position:absolute;top:4px;left:4px;padding:0 7px}
+.thumb .meta{color:var(--mute);direction:ltr;text-align:left;word-break:break-all}
+#pages{display:flex;flex-wrap:wrap;gap:16px;align-items:flex-start}
+#pages img{max-height:420px;max-width:100%;box-shadow:0 1px 6px rgba(0,0,0,.25);background:#fff}
+.ink{display:flex;align-items:center;gap:8px;font-size:13px;margin-top:4px}
+.ink .bar{flex:1;height:8px;background:var(--line);border-radius:4px;overflow:hidden}
+.ink .bar i{display:block;height:100%}
+#msg{white-space:pre-wrap;font-size:14px}
+.ok{color:var(--ok)}.warn{color:var(--warn)}.err{color:var(--err)}
+details summary{cursor:pointer;font-weight:600}
+.hint{font-size:12px;color:var(--mute)}
+</style>
+</head>
+<body>
+<header>
+  <h1>طباعة الصور بألوانها الحقيقية</h1>
+  <small>HEIC · JPG · PNG · RAW ← تحويل ألوان دقيق ← HP Smart Tank 580</small>
+</header>
+<main>
+<section>
+  <div class="card">
+    <h2>الطابعة</h2>
+    <div class="row">
+      <select id="printer"><option value="">جاري البحث…</option></select>
+      <button id="refresh" style="flex:0">بحث</button>
+    </div>
+    <label>أو اكتب عنوان IP الطابعة (من شاشة الطابعة ← Wi-Fi)</label>
+    <div class="row"><input type="text" id="ip" dir="ltr" placeholder="192.168.1.50"><button id="useip" style="flex:0">استخدم</button></div>
+    <div id="pinfo" class="hint" style="margin-top:8px"></div>
+  </div>
+
+  <div class="card">
+    <h2>إعدادات الطباعة</h2>
+    <label>مقاس الورق</label><select id="paper"></select>
+    <label>نوع الورق</label>
+    <select id="media_type">
+      <option value="glossy">ورق صور لامع (Photo Glossy)</option>
+      <option value="matte">ورق صور مطفي (Matte)</option>
+      <option value="brochure">ورق بروشور</option>
+      <option value="plain">ورق عادي</option>
+      <option value="auto">تلقائي</option>
+    </select>
+    <label>الجودة</label>
+    <select id="quality"><option value="best">أفضل جودة</option><option value="normal">عادية</option><option value="draft">مسودة (توفير حبر)</option></select>
+    <div class="row">
+      <div><label>عدد النسخ</label><input type="number" id="copies" value="1" min="1" max="99"></div>
+      <div><label>صور في الصفحة</label>
+        <select id="layout"><option>1</option><option>2</option><option>4</option><option>6</option><option>9</option><option>12</option></select></div>
+    </div>
+    <label>الألوان</label>
+    <select id="color_mode"><option value="color">ملون</option><option value="monochrome">أبيض وأسود (صورة فوتوغرافية)</option><option value="mono-black">أبيض وأسود (حبر أسود فقط)</option></select>
+    <div class="check"><input type="checkbox" id="borderless" checked><span>بدون حواف (Borderless)</span></div>
+    <div class="check"><input type="checkbox" id="fitfill"><span>إظهار الصورة كاملة بدون قص (Fit)</span></div>
+
+    <details style="margin-top:12px">
+      <summary>إعدادات متقدمة</summary>
+      <label>تعويض الإضاءة للورق: <b id="bv">1</b></label>
+      <input type="range" id="brightness" min="0" max="2" step="0.1" value="1">
+      <div class="hint">الشاشة مضيئة والورق يعكس الضوء فالصورة المطبوعة تبدو أغمق. 0 = بدون تعديل.</div>
+      <label>تشبع الألوان: <b id="sv">1</b></label>
+      <input type="range" id="saturation" min="0.6" max="1.4" step="0.05" value="1">
+      <label>الحدة (Sharpening): <b id="shv">1</b></label>
+      <input type="range" id="sharpen" min="0" max="2" step="0.1" value="1">
+      <label>دقة الإرسال للطابعة</label>
+      <select id="dpi"><option value="0">تلقائي (300 أو 600)</option><option value="300">300 dpi</option><option value="600">600 dpi</option></select>
+      <label>تحويل الألوان خارج نطاق الطابعة</label>
+      <select id="gamut"><option value="compress">ضغط ناعم يحافظ على التفاصيل (مُوصى به)</option><option value="clip">قص مباشر</option></select>
+      <label>درج الورق</label><select id="media_source"><option value="auto">تلقائي</option></select>
+      <label>الهامش بالمليمتر (عند الطباعة بحواف)</label><input type="number" id="margin_mm" value="3" min="0" max="30" step="0.5">
+      <div class="check"><input type="checkbox" id="auto_rotate" checked><span>تدوير الصورة تلقائياً لتناسب الورقة</span></div>
+    </details>
+  </div>
+</section>
+
+<section>
+  <div class="card">
+    <h2>الصور</h2>
+    <div id="drop">اسحب الصور هنا أو اضغط للاختيار<br><span class="hint">HEIC, HEIF, JPG, PNG, TIFF, WebP, AVIF, DNG, CR2/CR3, NEF, ARW, RAF…</span></div>
+    <input type="file" id="file" multiple hidden accept="image/*,.heic,.heif,.hif,.avif,.dng,.cr2,.cr3,.nef,.nrw,.arw,.raf,.orf,.rw2,.pef,.srw,.tif,.tiff">
+    <div id="thumbs"></div>
+  </div>
+  <div class="card">
+    <h2>معاينة الصفحات <span class="hint">(بعد تحويل الألوان)</span></h2>
+    <div id="pages" class="hint">أضف صوراً لعرض المعاينة</div>
+  </div>
+  <div class="card">
+    <div class="row" style="flex-wrap:wrap">
+      <button class="primary" id="print" disabled>اطبع</button>
+      <button id="save" disabled>حفظ PDF جاهز للطباعة</button>
+    </div>
+    <div id="msg" style="margin-top:10px"></div>
+  </div>
+</section>
+</main>
+
+<script>
+const $ = id => document.getElementById(id);
+const photos = [];           // {id, info, thumb}
+let caps = null;
+
+const MEDIA_NAMES = {"com.hp.advanced-photo":"HP Advanced Photo","photographic-glossy":"Photo Glossy","photographic-high-gloss":"Photo High Gloss",
+  "photographic-matte":"Photo Matte","photographic":"Photo","stationery":"Plain","com.hp.matte-brochure":"HP Matte Brochure",
+  "com.hp.glossy-brochure":"HP Glossy Brochure","auto":"Auto"};
+
+function msg(text, cls="") { $("msg").className = cls; $("msg").textContent = text; }
+
+async function api(path, opts={}) {
+  const r = await fetch(path, opts);
+  const ct = r.headers.get("content-type") || "";
+  if (!r.ok) throw new Error(ct.includes("json") ? (await r.json()).error : r.statusText);
+  return ct.includes("json") ? r.json() : r.blob();
+}
+
+function settings() {
+  const s = {};
+  for (const k of ["paper","media_type","quality","layout","color_mode","gamut","media_source"]) s[k] = $(k).value;
+  for (const k of ["copies","dpi","brightness","saturation","sharpen","margin_mm"]) s[k] = Number($(k).value);
+  s.borderless = $("borderless").checked; s.auto_rotate = $("auto_rotate").checked;
+  s.fit = $("fitfill").checked ? "fit" : "fill";
+  return s;
+}
+
+async function loadPapers() {
+  for (const p of await api("/api/papers")) $("paper").add(new Option(p.label, p.key));
+}
+
+async function findPrinters() {
+  $("printer").innerHTML = '<option value="">جاري البحث…</option>';
+  try {
+    const list = await api("/api/printers");
+    $("printer").innerHTML = "";
+    if (!list.length) $("printer").add(new Option("لم يتم العثور على طابعة — اكتب الـ IP", ""));
+    for (const p of list) $("printer").add(new Option(p.name, p.uri));
+    const saved = localStorage.getItem("printer");
+    if (saved && ![...$("printer").options].some(o => o.value === saved)) $("printer").add(new Option(saved, saved));
+    if (saved) $("printer").value = saved;
+    selectPrinter();
+  } catch (e) { $("printer").innerHTML = '<option value="">خطأ في البحث</option>'; }
+}
+
+async function selectPrinter() {
+  const uri = $("printer").value; caps = null; $("pinfo").textContent = "";
+  updateButtons();
+  if (!uri) return;
+  try { localStorage.setItem("printer", uri); } catch (e) {}
+  $("pinfo").textContent = "جاري قراءة إمكانيات الطابعة…";
+  try {
+    caps = await api("/api/caps?uri=" + encodeURIComponent(uri));
+    renderPrinterInfo();
+  } catch (e) { $("pinfo").innerHTML = `<span class="err">تعذر الاتصال: ${e.message}</span>`; }
+  preview();
+}
+
+function renderPrinterInfo() {
+  if (!caps || caps.kind !== "ipp") { $("pinfo").textContent = caps?.note || ""; return; }
+  const st = {idle:"جاهزة", printing:"تطبع الآن", stopped:"متوقفة"}[caps.state] || caps.state;
+  let h = `<b>${caps.model}</b> — ${st}`;
+  const reasons = (caps.state_reasons || []).filter(r => r && r !== "none");
+  if (reasons.length) h += `<div class="warn" dir="ltr">${reasons.join(", ")}</div>`;
+  for (const m of caps.markers || []) {
+    const cols = (m.color || "#888").split("#").filter(Boolean).map(c => "#" + c);
+    const bg = cols.length > 1 ? `linear-gradient(90deg,${cols.join(",")})` : cols[0];
+    const lvl = m.level >= 0 ? m.level + "%" : "غير معروف";
+    h += `<div class="ink"><span style="min-width:80px">${m.name}</span><span class="bar"><i style="width:${Math.max(m.level,0)}%;background:${bg}"></i></span><span>${lvl}</span></div>`;
+  }
+  $("pinfo").innerHTML = h;
+  // show only media types the printer really offers
+  if (caps.media_types?.length) {
+    const cur = $("media_type").value;
+    $("media_type").innerHTML = "";
+    for (const [v, t] of [["glossy","ورق صور لامع (أفضل اختيار متاح)"],["matte","ورق صور مطفي"],["plain","ورق عادي"],["auto","تلقائي"]]) $("media_type").add(new Option(t, v));
+    for (const k of caps.media_types) $("media_type").add(new Option(MEDIA_NAMES[k] || k, k));
+    $("media_type").value = [...$("media_type").options].some(o => o.value === cur) ? cur : "glossy";
+  }
+  if (caps.media_sources?.length) {
+    $("media_source").innerHTML = '<option value="auto">تلقائي</option>';
+    for (const k of caps.media_sources) $("media_source").add(new Option(k, k));
+  }
+}
+
+async function addFiles(files) {
+  for (const f of files) {
+    msg(`جاري فتح ${f.name}…`);
+    try {
+      const r = await api("/api/upload?name=" + encodeURIComponent(f.name), {method:"POST", body:f});
+      photos.push(r); renderThumbs();
+    } catch (e) { msg(`${f.name}: ${e.message}`, "err"); }
+  }
+  if (!$("msg").classList.contains("err")) msg("");
+  preview();
+}
+
+function renderThumbs() {
+  $("thumbs").innerHTML = "";
+  photos.forEach((p, i) => {
+    const d = document.createElement("div"); d.className = "thumb";
+    const inf = p.info;
+    d.innerHTML = `<img src="${p.thumb}"><div class="meta">${inf.name}<br>${inf.format} · ${inf.width}×${inf.height} · ${inf.bit_depth}-bit<br>${inf.colorspace}</div><button class="x" title="حذف">×</button>`;
+    d.querySelector(".x").onclick = () => { api("/api/remove",{method:"POST",body:JSON.stringify({id:p.id})}); photos.splice(i,1); renderThumbs(); preview(); };
+    $("thumbs").append(d);
+  });
+  updateButtons();
+}
+
+function updateButtons() {
+  $("print").disabled = !photos.length || !$("printer").value;
+  $("save").disabled = !photos.length;
+}
+
+let timer = null, seq = 0;
+function preview() {
+  clearTimeout(timer);
+  timer = setTimeout(async () => {
+    if (!photos.length) { $("pages").textContent = "أضف صوراً لعرض المعاينة"; return; }
+    const my = ++seq;
+    $("pages").style.opacity = .5;
+    try {
+      const r = await api("/api/preview", {method:"POST", body:JSON.stringify({ids:photos.map(p=>p.id), settings:settings(), caps})});
+      if (my !== seq) return;
+      $("pages").innerHTML = r.pages.map(u => `<img src="${u}">`).join("") + (r.total > r.pages.length ? `<div class="hint">+${r.total - r.pages.length} صفحات أخرى</div>` : "");
+      if (r.warnings.length) msg(r.warnings.join("\n"), "warn");
+    } catch (e) { msg(e.message, "err"); }
+    $("pages").style.opacity = 1;
+  }, 350);
+}
+
+$("print").onclick = async () => {
+  $("print").disabled = true; msg("جاري تجهيز الصور وإرسالها للطابعة…");
+  try {
+    const r = await api("/api/print", {method:"POST", body:JSON.stringify({ids:photos.map(p=>p.id), settings:settings(), printer:$("printer").value})});
+    const ids = (r.jobs || []).map(j => j.job_id).filter(Boolean).join(", ");
+    msg(`تم الإرسال ✓  ${r.pages} صفحة على ${r.paper} بدقة ${r.dpi} dpi${ids ? " — رقم المهمة " + ids : ""}` + (r.warnings.length ? "\n" + r.warnings.join("\n") : ""), "ok");
+  } catch (e) { msg("فشلت الطباعة: " + e.message, "err"); }
+  updateButtons();
+};
+
+$("save").onclick = async () => {
+  msg("جاري إنشاء PDF بالدقة الكاملة…");
+  try {
+    const blob = await api("/api/save", {method:"POST", body:JSON.stringify({ids:photos.map(p=>p.id), settings:settings()})});
+    const a = document.createElement("a"); a.href = URL.createObjectURL(blob); a.download = "photos-print-ready.pdf"; a.click();
+    msg("تم الحفظ ✓", "ok");
+  } catch (e) { msg(e.message, "err"); }
+};
+
+$("drop").onclick = () => $("file").click();
+$("file").onchange = e => { addFiles([...e.target.files]); e.target.value = ""; };
+$("drop").ondragover = e => { e.preventDefault(); $("drop").classList.add("over"); };
+$("drop").ondragleave = () => $("drop").classList.remove("over");
+$("drop").ondrop = e => { e.preventDefault(); $("drop").classList.remove("over"); addFiles([...e.dataTransfer.files]); };
+$("refresh").onclick = findPrinters;
+$("printer").onchange = selectPrinter;
+$("useip").onclick = () => {
+  const ip = $("ip").value.trim(); if (!ip) return;
+  const uri = ip.includes("://") ? ip : `ipp://${ip.includes(":") ? ip : ip + ":631"}/ipp/print`;
+  $("printer").add(new Option(ip, uri)); $("printer").value = uri; selectPrinter();
+};
+for (const [id, out] of [["brightness","bv"],["saturation","sv"],["sharpen","shv"]]) $(id).addEventListener("input", () => $(out).textContent = $(id).value);
+for (const el of document.querySelectorAll("select,input")) if (!["printer","ip","file"].includes(el.id)) el.addEventListener("change", preview);
+
+loadPapers().then(findPrinters);
+</script>
+</body>
+</html>
