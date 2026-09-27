@@ -1,0 +1,6 @@
+pillow>=10.1
+numpy>=1.24
+pillow-heif>=0.16      # HEIC / HEIF (iPhone, Samsung...)
+rawpy>=0.19            # camera RAW: DNG, CR2, CR3, NEF, ARW, RAF, ORF, RW2...
+zeroconf>=0.100        # finds the printer on Wi-Fi automatically
+pywin32>=306; sys_platform == "win32"   # print through a Windows/USB driver queue
