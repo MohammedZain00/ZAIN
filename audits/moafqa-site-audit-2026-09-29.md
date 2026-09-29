@@ -53,7 +53,7 @@ Deploy marker unchanged: `moafqa.css?v=20260922-english-ltr-v165` — but lots o
 **3.1 Cloudflare AI-bot policy — FIXED by owner on 09-29.**
 Security → Settings → Configure AI bot policies: Search = Allow, Agent = Allow, Training = Allow (was Disallow), Bot Preference Sync = Off.
 Re-test: GPTBot, ClaudeBot, Claude-User, CCBot, meta-externalagent, FacebookBot, Google-CloudVertexBot → 200. robots.txt unchanged.
-Still open: owner's manual per-crawler blocks (Bytespider, TikTokSpider, Amazonbot, PetalBot, Timpibot) returned **200** on re-test — not applied / not saved yet. Re-check.
+Manual per-crawler blocks re-applied and verified: Bytespider, TikTokSpider, Amazonbot, PetalBot, Timpibot → 403. Browsers, WhatsApp/Facebook previews, Googlebot/Bingbot/Applebot → 200. **3.1 closed.**
 
 **3.2 Brand ambiguity.**
 - `muwafqa.sa` is a **different WordPress site titled "موافقة العقارية"** — same Arabic name. Search engines and LLMs will mix the two.
