@@ -50,11 +50,10 @@ Deploy marker unchanged: `moafqa.css?v=20260922-english-ltr-v165` — but lots o
 
 ### P0 — AI visibility
 
-**3.1 Cloudflare blocks AI crawlers (403 "Your request was blocked.").**
-robots.txt allows everyone, but Cloudflare's AI-bot blocking returns 403 to:
-`GPTBot`, `ClaudeBot`, `CCBot`, `Bytespider`, `Amazonbot`.
-Allowed (200): Googlebot, Bingbot, OAI-SearchBot, PerplexityBot, Claude-SearchBot, Applebot, DuckAssistBot, facebookexternalhit.
-Fix: Cloudflare → Security → Bots / AI Crawl Control → allow at least GPTBot + ClaudeBot (or turn off "Block AI bots").
+**3.1 Cloudflare AI-bot policy — FIXED by owner on 09-29.**
+Security → Settings → Configure AI bot policies: Search = Allow, Agent = Allow, Training = Allow (was Disallow), Bot Preference Sync = Off.
+Re-test: GPTBot, ClaudeBot, Claude-User, CCBot, meta-externalagent, FacebookBot, Google-CloudVertexBot → 200. robots.txt unchanged.
+Still open: owner's manual per-crawler blocks (Bytespider, TikTokSpider, Amazonbot, PetalBot, Timpibot) returned **200** on re-test — not applied / not saved yet. Re-check.
 
 **3.2 Brand ambiguity.**
 - `muwafqa.sa` is a **different WordPress site titled "موافقة العقارية"** — same Arabic name. Search engines and LLMs will mix the two.
