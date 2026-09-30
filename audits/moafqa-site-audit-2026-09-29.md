@@ -134,5 +134,5 @@ Still open (developer): language auto-redirect to `/en` (no Accept-Language / en
 
 New findings:
 - **No DMARC record** (`_dmarc.moafqa.sa` has no TXT) — this is Cloudflare's "DMARC Record Error". Start with `v=DMARC1; p=none; rua=mailto:info@moafqa.sa`.
-- **`track-system-moafqa.netlify.app`** — a public "CRM السوشيال والتحويلات والمتابعة - موافقة العقارية" dashboard, no login, indexed by search engines. Showed 0 clients on the public view; page references Firebase/Supabase. Not inspected further. Owner should find who built it, put it behind a password, and noindex/remove it.
+- **`track-system-moafqa.netlify.app`** — a public "CRM السوشيال والتحويلات والمتابعة - موافقة العقارية" dashboard, no login, indexed by search engines. Showed 0 clients on the public view; page references Firebase/Supabase. Not inspected further. **Closed 09-30:** it's on the owner's own Netlify account; owner enabled visitor access protection. Verified: root, `/index.html`, deploy permalink and Googlebot all get 401 → Netlify access page, no CRM content served. Remaining: owner/builder to check Firebase/Supabase rules, and request removal in Search Console.
 - Search engines list a PropertyFinder broker page "مؤسسة موافقة العقارية" — add to `sameAs` if it's ours.
