@@ -10,3 +10,8 @@ New issues seen in Google's crawled HTML of the homepage:
 4. TikTok: footer + schema use `@moafqa.sa`, but the embedded homepage video is from `@moafgh_10` (same handle linked from muwafqa.sa). Decide the official account; add both to `sameAs` if both are ours.
 5. Arabic footer: link text "About Us" in English; `.mq-footer-en` shows Arabic text instead of "Moafqa Real Estate".
 6. Header is `header#top` without `.top_menu` → cause of the Odoo JS error (`web.assets_frontend_minimal.min.js:169`).
+
+## Done by owner 09-30
+- Home page: Request indexing accepted (priority crawl queue).
+- **Sitemap submitted** in Search Console as `https://moafqa.sa/sitemap.xml` (Domain property needs the full URL; bare `sitemap.xml` is rejected as invalid). File verified as Googlebot: 200, valid XML, 70 URLs.
+- Next check (~1 week): Indexing → Pages (indexed vs not-indexed + reasons), Sitemaps status/discovered count.
