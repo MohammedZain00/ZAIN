@@ -113,3 +113,26 @@ Requests with no `Accept-Language` (most AI fetchers: `ChatGPT-User`, `Perplexit
 | 0.73 s | 815 ms | 3.0 s | 4.0 s | 5.7 MB | 53 |
 
 Mobile (iPhone 13 profile) page loads: 2.4–3.5 s.
+
+---
+
+## 6. Full re-test 2026-09-30
+
+No site/template changes since 09-29 (same CSS `v165`, identical title/desc/H1/word counts/alt on all 70 sitemap URLs).
+
+| Area | Result |
+|---|---|
+| Sitemap | 70 URLs, all 200, all self-canonical, 1 H1 each |
+| AI/search bots | GPTBot, ClaudeBot, Claude-User, CCBot, meta-externalagent, OAI-SearchBot, ChatGPT-User, PerplexityBot, Googlebot, Bingbot, Applebot, FB/WhatsApp previews → 200 |
+| Unwanted bots | Bytespider, TikTokSpider, Amazonbot, PetalBot, Timpibot → 403 |
+| Redirects | http→https, www→apex, trailing slash → single 301; 404s correct |
+| Tracking | ViewContent/view_item on load, Contact/contact on WhatsApp, Lead/generate_lead on conversion redirect — all fire |
+| Mobile | No horizontal scroll on 5 key pages; globe icon still clipped |
+| Perf | TTFB avg 0.53 s (curl, 70 pages); home load 3.2 s, 5.8 MB |
+
+Still open (developer): language auto-redirect to `/en` (no Accept-Language / en cookie), `og:url` on 30 EN pages, blog meta description empty, duplicate townhouse titles, alt text (home 26/38), heavy PNG/TTF, JS error in `web.assets_frontend_minimal.min.js:169`, no FAL/CR/address, thin content, `/website/info` + `/jobs` public.
+
+New findings:
+- **No DMARC record** (`_dmarc.moafqa.sa` has no TXT) — this is Cloudflare's "DMARC Record Error". Start with `v=DMARC1; p=none; rua=mailto:info@moafqa.sa`.
+- **`track-system-moafqa.netlify.app`** — a public "CRM السوشيال والتحويلات والمتابعة - موافقة العقارية" dashboard, no login, indexed by search engines. Showed 0 clients on the public view; page references Firebase/Supabase. Not inspected further. Owner should find who built it, put it behind a password, and noindex/remove it.
+- Search engines list a PropertyFinder broker page "مؤسسة موافقة العقارية" — add to `sameAs` if it's ours.
