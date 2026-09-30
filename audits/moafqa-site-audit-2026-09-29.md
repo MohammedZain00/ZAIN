@@ -71,7 +71,7 @@ Requests with no `Accept-Language` (most AI fetchers: `ChatGPT-User`, `Perplexit
 
 **3.5 `/en` pages: `og:url` points to the Arabic URL** on every EN page (e.g. `/en/contactus` → `og:url https://moafqa.sa/contactus`).
 
-**3.6 `www.moafqa.sa` serves 200** (canonical → apex, so not fatal) — should 301 to `https://moafqa.sa/`.
+**3.6 `www` → apex — FIXED 09-30** via Cloudflare Page Rule `www.moafqa.sa/*` → 301 `https://moafqa.sa/$1`. Verified: path, Arabic slugs, query string, `/en` and `http://www` all land on the apex in one hop.
 
 **3.7 Mobile header**: language globe icon clipped outside the header pill (left edge). Mobile hero: carousel prev-arrow overlaps the bullet "انتشار واسع بالرياض". No sticky call/WhatsApp bar on mobile property page.
 
